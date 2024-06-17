@@ -1,18 +1,9 @@
 module.exports = {
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    ecmaVersion: 2021,
-    sourceType: "module",
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
   env: {
     browser: true,
     es2021: true,
     node: true,
   },
-  root: true,
   extends: [
     "next",
     "eslint:recommended",
@@ -23,11 +14,17 @@ module.exports = {
     "plugin:prettier/recommended",
     "plugin:react-hooks/recommended",
   ],
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2021,
+    sourceType: "module",
+  },
   plugins: ["prettier", "@typescript-eslint", "react", "react-hooks"],
+  root: true,
   rules: {
-    // JavaScript rules
-    "object-shorthand": "warn",
-    "quote-props": ["warn", "as-needed"],
     // TypeScript rules
     "@typescript-eslint/array-type": [
       "warn",
@@ -42,19 +39,22 @@ module.exports = {
         objectLiteralTypeAssertions: "never",
       },
     ],
-    // React rules
-    "react/jsx-fragments": ["warn", "syntax"], // Shorthand syntax for React fragments
+    // JavaScript rules
+    "object-shorthand": "warn",
+    "prettier/prettier": "warn",
+    "quote-props": ["warn", "as-needed"],
     "react/jsx-filename-extension": [
       "warn",
       {
         extensions: ["ts", "tsx"],
       },
     ],
-    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
-    "react/react-in-jsx-scope": "off",
+    // React rules
+    "react/jsx-fragments": ["warn", "syntax"], // Shorthand syntax for React fragments
     "react/prop-types": "off",
-    "prettier/prettier": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
   },
   settings: {
     react: {
